@@ -1,8 +1,21 @@
-const btnDecrease = document.querySelector(".btn-decrease");
-const btnReset = document.querySelector(".btn-reset");
-const btnIncrease = document.querySelector(".btn-increase");
+const btns = document.querySelectorAll(".button");
+const value = document.querySelector("#value");
 
 
-btnDecrease.addEventListener('click', () => {
-    console.log("diste click");
+//inicial counter
+let count = 0;
+
+//funtion counter
+btns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+        const styles = e.currentTarget.classList;
+        if (styles.contains('decrease')) {
+            count--;
+        } else if (styles.contains('increase')) {
+            count++;
+        } else {
+            count = 0;
+        };
+        value.textContent = count;
+    });
 });
